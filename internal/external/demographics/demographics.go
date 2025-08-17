@@ -15,7 +15,10 @@ type Service struct {
 }
 
 func NewService(c *http.Client) *Service {
-	return &Service{client: c}
+	return &Service{
+		client: c,
+		logger: log.Default(),
+	}
 }
 
 func (s *Service) Infer(ctx context.Context, firstName string) (*int, *string, *string) {
